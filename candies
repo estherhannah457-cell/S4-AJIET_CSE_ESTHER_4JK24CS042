@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = 10, k = 5; // N = Total, K = Threshold
+        
+        // Check if input exists and is a valid integer
+        if (!sc.hasNextInt()) { System.out.println("INVALID INPUT"); return; }
+        
+        int order = sc.nextInt();
+
+        // One-liner validation
+        if (order > 0 && order <= n) {
+            System.out.println("NUMBER OF CANDIES SOLD: " + order);
+            
+            // Calculate remaining. If remaining <= 5, reset to 10, otherwise keep math result.
+            int remaining = n - order;
+            int updatedJar = (remaining <= k) ? n : remaining;
+            
+            System.out.println("NUMBER OF CANDIES AVAILABLE: " + updatedJar);
+        } else {
+            System.out.println("INVALID INPUT\nNUMBER OF CANDIES AVAILABLE: " + n);
+        }
+    }
+}
