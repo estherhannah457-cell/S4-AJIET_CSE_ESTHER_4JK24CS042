@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Input order: n, k, j, m, p
+        int n = sc.nextInt(); // Total monkeys
+        int k = sc.nextInt(); // Banana capacity
+        int j = sc.nextInt(); // Peanut capacity
+        int m = sc.nextInt(); // Total bananas
+        int p = sc.nextInt(); // Total peanuts
+
+        // 1. Check for invalid inputs
+        if (n <= 0 || k <= 0 || j <= 0 || m < 0 || p < 0) {
+            System.out.println("INVALID INPUT");
+        } else {
+            // 2. Use Math.ceil to count monkeys (double cast is needed for decimal division)
+            int ateBananas = (int) Math.ceil((double) m / k);
+            int atePeanuts = (int) Math.ceil((double) p / j);
+
+            // 3. Subtract from total
+            int left = n - (ateBananas + atePeanuts);
+            
+            // Output result (ensure it's not negative)
+            System.out.println("Number of Monkeys left on the tree:" + Math.max(0, left));
+        }
+    }
+}
