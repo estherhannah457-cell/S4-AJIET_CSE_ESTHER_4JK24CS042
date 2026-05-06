@@ -1,0 +1,17 @@
+*******************************************************************************/
+import java.util.Arrays;
+public class Main
+{
+	public static void main(String[] args) {
+	    String s1="Hello World java";
+	    String s2="";
+	    StringBuilder k=new StringBuilder();
+	    for(char j:s1.toCharArray()){
+	        if(!Character.isWhitespace(j)){
+	            k.append(j);
+	        }
+	    }
+	        String m=k.toString();
+	        System.out.println(m);
+	    }
+	
